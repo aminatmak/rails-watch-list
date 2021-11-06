@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1532568547949-a09f1afe4d1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2370&q=80);">
+  <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="container position absolute">
 
-  <tbody>
+  <h1>My lists</h1>
+
+  <%= link_to 'Create a movie list', new_list_path, class: "btn btn-success mb-3" %>
+
+  <div class="cards">
     <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.name %></td>
-        <td><%= link_to 'See details', list, class: "btn btn-outline-secondary" %></td>
-      </tr>
+      <%= link_to list do %>
+        <div class="card-category position relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1543536448-1e76fc2795bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2339&q=80); mx-3">
+          <%= list.name %>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'Create a movie list', new_list_path, class: "btn btn-primary" %>
+</div>
